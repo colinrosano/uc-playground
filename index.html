@@ -5,5 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 	</head>
-	<body></body>
+	<body>
+		<iframe id="osano-uc-iframe" src="https://unifiedconsent.osano.com/5432/"></iframe>
+		<script type="text/javascript" crossorigin="anonymous">
+			window.unifiedConsentJsSdk.UnifiedConsentByOsanoSDK.initEmbeddedParent({
+				targetIframe: document.getElementById('osano-uc-iframe'),
+			});
+		</script>
+	</body>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		#osano-uc-iframe {
+			width: 100vw;
+			height: 100vh;
+		}
+	</style>
 </html>
