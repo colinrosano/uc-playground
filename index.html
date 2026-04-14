@@ -3,6 +3,23 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Security-Policy" content="frame-src 'self' unifiedconsent.osano.com" />
+		<script type="text/javascript" src="https://s.uc.osano.com/sdk/latest.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" crossorigin="anonymous">
+			const { UnifiedConsentByOsanoSDK } = window.unifiedConsentJsSdk;
+			if (window.navigator.globalPrivacyControl) {
+				UnifiedConsentByOsanoSDK.getToken({
+					issuer: 'https://uc.api.osano.com/v2/token/create',
+					configId: '3741f9cc-0d1a-4f64-958d-d0d751612877',
+					customerId: 'osdemosales3inc',
+				}).then((token) => {
+					UnifiedConsentByOsanoSDK.registerPrivacyProtocols({
+						apiUrl: 'https://uc.api.osano.com/v2/',
+						token,
+					});
+				});
+			}
+		</script>
 		<title>Document</title>
 	</head>
 	<body>
